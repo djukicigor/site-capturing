@@ -1,21 +1,25 @@
-import { FlowRouter } from 'meteor/kadira:flow-router';
-import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+// I'm using Flow Router Extra because it gives a lot of new features
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 // Import needed templates
 import '../../ui/layouts/body/body.js';
-import '../../ui/pages/home/home.js';
-import '../../ui/pages/not-found/not-found.js';
 
 // Set up all routes in the app
 FlowRouter.route('/', {
   name: 'App.home',
   action() {
-    BlazeLayout.render('App_body', { main: 'App_home' });
+    this.render('App_body', 'App_home');
   },
+  waitOn() {
+    return import('../../ui/pages/home/home.js')
+  }
 });
 
 FlowRouter.notFound = {
   action() {
     BlazeLayout.render('App_body', { main: 'App_notFound' });
   },
+  waitOn() {
+    return import('../../ui/pages/not-found/not-found.js');
+  }
 };
