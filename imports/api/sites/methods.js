@@ -16,7 +16,8 @@ const takeScreenshot = new ValidatedMethod({
     validate: urlSchema.validator(),
     run({ address }) {
         return new Promise((resolve, reject) => {
-            const exists = Sites.findOne({ address });
+            const newAddress = address.replace('www.', '');
+            const exists = Sites.findOne({ address: { $in: [newAddress, address, 'www.' + newAddress] } });
             if (exists) {
                 resolve(exists._id);
             } else {

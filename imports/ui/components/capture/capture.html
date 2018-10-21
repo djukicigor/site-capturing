@@ -1,7 +1,15 @@
 <template name="App_capture">
-    <form id="js-capture">
-        Capture website:
-        <input type="text" placeholder="Capture website">
-        <button>Capture</button>
-    </form>
+    <div class="ui form capture-form">
+        <form id="js-capture">
+            <div class="inline fields">
+                <div class="eight wide field">
+                    <label>Capture website:</label>
+                    <input placeholder="Capture website" id="js-textbox" type="text">
+                </div>
+                <div class="three wide field">
+                    <button class="ui submit button">Capture</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </template>

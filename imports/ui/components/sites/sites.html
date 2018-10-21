@@ -1,7 +1,11 @@
 <template name="App_sites">
-    {{#each site in sites}}
-        <a href="{{pathFor 'App.site' id=site._id}}">
-            <img src="{{site.image.url}}" alt="image"> <br>
+    <div class="ui three column grid all-sites">
+        {{#each site in sites}}
+        <a href="{{pathFor 'App.site' id=site._id}}" class="column ui image site-column">
+            <div class="ui segment">
+                <img src="{{site.image.url}}" alt="image">
+            </div>
         </a>
-    {{/each}}
+        {{/each}}
+    </div>
 </template>

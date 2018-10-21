@@ -1,5 +1,10 @@
 <template name="App_site">
-    {{site.name}}
-    {{site.address}}
-    <img src="{{site.image.url}}" alt="{{site.name}} image">
+    <div class="container ui">
+        <h2>{{site.name}}</h2>
+        <a href="{{site.address}}" target="_blank">{{site.address}}</a>
+    </div>
+    <div class="ui divider"></div>
+    <div class="single-image">
+        <img src="{{site.image.url}}" alt="{{site.name}} image" class="">
+    </div>
 </template>

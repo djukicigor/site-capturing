@@ -6,7 +6,10 @@
         "container": true,
         "divider": true,
         "input": true,
-        "image": true
+        "image": true,
+        "segment": true,
+        "grid": true,
+        "label": true
     },
     "themes": {
         "default": true

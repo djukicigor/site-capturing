@@ -9,7 +9,7 @@ Meteor.startup(() => {
     const data = [
       {
         name: 'Google',
-        address: 'https://www.google.com',
+        address: 'www.google.com',
         createdAt: new Date(),
         image: {
           url: 'https://i.imgur.com/jvbMFEi.png',
@@ -18,7 +18,7 @@ Meteor.startup(() => {
       },
       {
         name: 'Facebook',
-        address: 'https://www.facebook.com',
+        address: 'www.facebook.com',
         createdAt: new Date(),
         image: {
           url: 'https://i.imgur.com/Dp4QLM6.png',
