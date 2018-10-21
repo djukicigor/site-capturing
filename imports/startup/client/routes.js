@@ -19,6 +19,19 @@ FlowRouter.route('/', {
   }
 });
 
+FlowRouter.route('/:id', {
+  name: 'App.site',
+  action(params, qs, site) {
+    this.render('App_body', 'App_site', { site })
+  },
+  waitOn(params) {
+    return [import('../../ui/pages/site/site.js'), Meteor.subscribe('site', params.id)]
+  },
+  data() {
+    return Sites.findOne({});
+  }
+})
+
 FlowRouter.route('*', {
   action() {
     BlazeLayout.render('App_body', { main: 'App_notFound' });

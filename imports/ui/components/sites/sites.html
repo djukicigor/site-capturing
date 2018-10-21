@@ -1,6 +1,8 @@
 <template name="App_sites">
     {{#each site in sites}}
-        {{site.name}}
-        {{site.address}}
+        <a href="{{pathFor 'App.site' id=site._id}}">
+            {{site.name}}
+            {{site.address}} <br>
+        </a>
     {{/each}}
 </template>
