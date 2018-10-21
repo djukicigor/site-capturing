@@ -1,9 +1,7 @@
 <template name="App_sites">
     {{#each site in sites}}
         <a href="{{pathFor 'App.site' id=site._id}}">
-            {{site.name}}
-            {{site.address}}
-            <img src="{{site.image.url}}" alt="{{site.name}} image"> <br>
+            <img src="{{site.image.url}}" alt="image"> <br>
         </a>
     {{/each}}
 </template>
