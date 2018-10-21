@@ -16,31 +16,38 @@ const takeScreenshot = new ValidatedMethod({
     validate: urlSchema.validator(),
     run({ address }) {
         return new Promise((resolve, reject) => {
-            (async () => {
-                const browser = await puppeteer.launch();
-                const page = await browser.newPage();
-                await page.goto('https://' + address);
-                const title = await page.title()
-                await page.setViewport({
-                    width: 1280,
-                    height: 720
-                })
-                const buffer = await page.screenshot();
-                const bufferImage = Buffer.from(buffer).toString('base64');
-                await browser.close();
-                Meteor.call('imgurUpload', { image: bufferImage }, (err, image) => {
-                    if (err) {
-                        throw new Meteor.Error(err);
-                    } else {
-                        resolve(Sites.insert({
-                            name: title,
-                            address,
-                            createdAt: new Date(),
-                            image
-                        }))
-                    }
-                })
-            })();
+            const exists = Sites.findOne({ address });
+            if (exists) {
+                resolve(exists._id);
+            } else {
+                (async () => {
+                    const browser = await puppeteer.launch();
+                    const page = await browser.newPage();
+                    await page.goto('https://' + address);
+                    const title = await page.title()
+                    await page.setViewport({
+                        width: 1280,
+                        height: 720
+                    })
+                    const buffer = await page.screenshot();
+                    const bufferImage = Buffer.from(buffer).toString('base64');
+                    await browser.close();
+
+                    Meteor.call('imgurUpload', { image: bufferImage }, (err, image) => {
+                        if (err) {
+                            throw new Meteor.Error(err);
+                        } else {
+                            resolve(Sites.insert({
+                                name: title,
+                                address,
+                                createdAt: new Date(),
+                                image
+                            }))
+                        }
+                    })
+                })();
+            }
+
         })
     }
 })
