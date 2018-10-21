@@ -11,13 +11,19 @@ Meteor.startup(() => {
         name: 'Google',
         address: 'https://www.google.com',
         createdAt: new Date(),
-        image: 'Google'
+        image: {
+          url: 'https://i.imgur.com/jvbMFEi.png',
+          deletehash: 'cjb4fztMG0G2sGl'
+        }
       },
       {
-        name: 'Apple',
-        address: 'https://www.apple.com',
+        name: 'Facebook',
+        address: 'https://www.facebook.com',
         createdAt: new Date(),
-        image: 'Apple'
+        image: {
+          url: 'https://i.imgur.com/Dp4QLM6.png',
+          deleteHash: 'u01dsqVgzmALlbB',
+        }
       },
     ];
 
