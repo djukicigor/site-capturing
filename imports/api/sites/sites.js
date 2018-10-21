@@ -10,9 +10,7 @@ Sites.deny({
 })
 
 Sites.schema = new SimpleSchema({
-    name: {
-        type: String
-    },
+    name: String,
     address: {
         type: String,
         regEx: SimpleSchema.RegEx.Domain,
@@ -21,7 +19,5 @@ Sites.schema = new SimpleSchema({
         type: Date,
         defaultValue: new Date(),
     },
-    image: {
-        type: String
-    }
+    image: String
 })
