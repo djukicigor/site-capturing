@@ -9,13 +9,13 @@ Meteor.startup(() => {
     const data = [
       {
         name: 'Google',
-        url: 'https://www.google.com',
+        address: 'https://www.google.com',
         createdAt: new Date(),
         image: 'Google'
       },
       {
         name: 'Apple',
-        url: 'https://www.apple.com',
+        address: 'https://www.apple.com',
         createdAt: new Date(),
         image: 'Apple'
       },
