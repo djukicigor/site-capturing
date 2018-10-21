@@ -1,0 +1,14 @@
+{
+    "definitions": {
+        "site": true,
+        "form": true,
+        "button": true,
+        "container": true,
+        "divider": true,
+        "input": true,
+        "image": true
+    },
+    "themes": {
+        "default": true
+    }
+}
